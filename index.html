@@ -817,6 +817,7 @@
       A: {
         model: "Toyota Yaris ATIV",
         shortName: "Yaris ATIV",
+image: "car-a.png",
         archetype: "THE SMART URBANIST • นักปรับตัวสายสมาร์ท",
         glow: "rgba(56, 189, 248, 0.3)",
         accent: "#38BDF8",
@@ -826,6 +827,7 @@
       B: {
         model: "Toyota Corolla Cross",
         shortName: "Corolla Cross",
+image: "car-b.png",
         archetype: "THE WARM STRATEGIST • นักวางแผนผู้แสนอบอุ่น",
         glow: "rgba(16, 185, 129, 0.3)",
         accent: "#10B981",
@@ -835,6 +837,7 @@
       C: {
         model: "Toyota Hilux Revo / Fortuner",
         shortName: "Hilux Revo / Fortuner",
+image: "car-c.png",
         archetype: "THE FEARLESS PIONEER • ขาลุยหัวใจแกร่ง",
         glow: "rgba(245, 158, 11, 0.3)",
         accent: "#F59E0B",
@@ -844,6 +847,7 @@
       D: {
         model: "Toyota Camry",
         shortName: "Camry",
+image: "car-d.png",
         archetype: "THE VISIONARY LEADER • ผู้นำสายสุขุมผู้มีวิสัยทัศน์",
         glow: "rgba(168, 85, 247, 0.3)",
         accent: "#A855F7",
@@ -853,6 +857,7 @@
       E: {
         model: "Toyota GR86 / GR Sport",
         shortName: "GR86 / GR Sport",
+image: "car-e.png",
         archetype: "THE PASSIONATE MAVERICK • นักล่าฝันผู้รักอิสระ",
         glow: "rgba(235, 10, 30, 0.38)",
         accent: "#EB0A1E",
@@ -982,7 +987,7 @@
 
       const showcase = document.getElementById("resultShowcase");
       showcase.style.setProperty("--glow-color", profile.glow);
-      document.getElementById("carSvgBox").innerHTML = getCarSvg(profile.accent, finalCode);
+     document.getElementById("carSvgBox").innerHTML = `<img src="${profile.image}" alt="${profile.model}" style="width:100%; max-height:175px; object-fit:contain; border-radius:12px; filter:drop-shadow(0 12px 20px rgba(0,0,0,0.65));" />`;
       document.getElementById("resultArchetype").textContent = profile.archetype;
       document.getElementById("resultModel").textContent = profile.model;
       document.getElementById("matchPercent").textContent = `ความเข้ากัน ${matchPct}%`;
