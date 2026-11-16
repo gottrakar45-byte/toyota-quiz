@@ -1,0 +1,1199 @@
+<!DOCTYPE html>
+<html lang="th">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>TOYOTA DRIVING DNA | ค้นหารถโตโยต้าที่ใช่ในสไตล์คุณ</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Prompt:wght@300;400;500;600;700;800&display=swap" rel="stylesheet" />
+  <style>
+    :root {
+      --bg-dark: #0A0D12;
+      --bg-panel: #131822;
+      --bg-card: #1A212E;
+      --border-subtle: rgba(255, 255, 255, 0.08);
+      --toyota-red: #EB0A1E;
+      --toyota-red-glow: rgba(235, 10, 30, 0.35);
+      --text-main: #F4F6F9;
+      --text-muted: #94A3B8;
+      --accent-gold: #F59E0B;
+      --accent-emerald: #10B981;
+    }
+
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+      font-family: 'Prompt', sans-serif;
+    }
+
+    body {
+      background-color: var(--bg-dark);
+      background-image:
+        radial-gradient(circle at 15% 15%, rgba(235, 10, 30, 0.12), transparent 40%),
+        radial-gradient(circle at 85% 85%, rgba(56, 189, 248, 0.08), transparent 45%),
+        linear-gradient(135deg, #0A0D12 0%, #0F141D 100%);
+      color: var(--text-main);
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      padding: 20px 16px 70px;
+    }
+
+    .container {
+      width: 100%;
+      max-width: 540px;
+      margin: 0 auto;
+    }
+
+    .brand-header {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      margin-bottom: 18px;
+      padding: 0 4px;
+    }
+
+    .brand-badge {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      font-weight: 700;
+      font-size: 0.95rem;
+      letter-spacing: 0.08em;
+      color: #FFFFFF;
+    }
+
+    .brand-dot {
+      width: 10px;
+      height: 10px;
+      background: var(--toyota-red);
+      border-radius: 2px;
+      transform: skewX(-18deg);
+      box-shadow: 0 0 12px var(--toyota-red);
+    }
+
+    .source-pill {
+      font-size: 0.72rem;
+      color: var(--text-muted);
+      background: rgba(255, 255, 255, 0.05);
+      border: 1px solid var(--border-subtle);
+      padding: 4px 10px;
+      border-radius: 999px;
+    }
+
+    .card {
+      background: var(--bg-panel);
+      border: 1px solid var(--border-subtle);
+      border-radius: 22px;
+      padding: 28px 24px;
+      box-shadow: 0 24px 60px rgba(0, 0, 0, 0.55);
+      position: relative;
+      overflow: hidden;
+    }
+
+    .card::before {
+      content: "";
+      position: absolute;
+      top: 0;
+      left: 0;
+      right: 0;
+      height: 3px;
+      background: linear-gradient(90deg, var(--toyota-red), #FF5E6C, transparent);
+    }
+
+    .hidden {
+      display: none !important;
+    }
+
+    .hero-tag {
+      display: inline-block;
+      background: rgba(235, 10, 30, 0.15);
+      color: #FF4D5E;
+      border: 1px solid rgba(235, 10, 30, 0.35);
+      font-size: 0.75rem;
+      font-weight: 600;
+      padding: 4px 12px;
+      border-radius: 999px;
+      margin-bottom: 14px;
+      letter-spacing: 0.05em;
+    }
+
+    h1 {
+      font-size: 1.75rem;
+      line-height: 1.25;
+      font-weight: 800;
+      margin-bottom: 12px;
+      background: linear-gradient(180deg, #FFFFFF 0%, #CBD5E1 100%);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+    }
+
+    .subtitle {
+      color: var(--text-muted);
+      font-size: 0.94rem;
+      line-height: 1.6;
+      margin-bottom: 22px;
+    }
+
+    .input-group {
+      margin-bottom: 14px;
+      text-align: left;
+    }
+
+    .input-group label {
+      display: block;
+      font-size: 0.82rem;
+      color: #CBD5E1;
+      margin-bottom: 6px;
+    }
+
+    .input-field {
+      width: 100%;
+      background: var(--bg-card);
+      border: 1px solid var(--border-subtle);
+      color: var(--text-main);
+      padding: 12px 14px;
+      border-radius: 12px;
+      font-size: 0.92rem;
+      outline: none;
+      transition: border-color 0.2s;
+    }
+
+    .input-field:focus {
+      border-color: var(--toyota-red);
+    }
+
+    .consent-row {
+      display: flex;
+      align-items: flex-start;
+      gap: 10px;
+      margin: 14px 0 22px;
+      font-size: 0.78rem;
+      color: var(--text-muted);
+      line-height: 1.45;
+    }
+
+    .consent-row input[type="checkbox"] {
+      margin-top: 3px;
+      accent-color: var(--toyota-red);
+      width: 16px;
+      height: 16px;
+      cursor: pointer;
+    }
+
+    .btn-primary {
+      width: 100%;
+      background: linear-gradient(135deg, #EB0A1E 0%, #B80716 100%);
+      color: #FFFFFF;
+      border: none;
+      padding: 15px 20px;
+      border-radius: 14px;
+      font-size: 1rem;
+      font-weight: 700;
+      cursor: pointer;
+      box-shadow: 0 10px 25px var(--toyota-red-glow);
+      transition: transform 0.15s ease, box-shadow 0.15s ease;
+    }
+
+    .btn-primary:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 14px 30px rgba(235, 10, 30, 0.5);
+    }
+
+    .btn-secondary {
+      background: var(--bg-card);
+      color: var(--text-main);
+      border: 1px solid var(--border-subtle);
+      padding: 12px 16px;
+      border-radius: 12px;
+      font-size: 0.9rem;
+      font-weight: 600;
+      cursor: pointer;
+      transition: all 0.2s;
+    }
+
+    .btn-secondary:hover {
+      border-color: rgba(255, 255, 255, 0.25);
+      background: #232C3D;
+    }
+
+    .telemetry-top {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      margin-bottom: 10px;
+      font-size: 0.85rem;
+    }
+
+    .q-counter {
+      font-weight: 700;
+      color: #FFFFFF;
+    }
+
+    .weight-badge {
+      background: rgba(245, 158, 11, 0.16);
+      color: #FBBF24;
+      border: 1px solid rgba(245, 158, 11, 0.4);
+      padding: 3px 10px;
+      border-radius: 999px;
+      font-size: 0.74rem;
+      font-weight: 600;
+    }
+
+    .progress-track {
+      width: 100%;
+      height: 8px;
+      background: var(--bg-card);
+      border-radius: 999px;
+      overflow: hidden;
+      margin-bottom: 22px;
+    }
+
+    .progress-fill {
+      height: 100%;
+      width: 10%;
+      background: linear-gradient(90deg, var(--toyota-red), #FF5E6C);
+      border-radius: 999px;
+      transition: width 0.35s ease;
+    }
+
+    .question-text {
+      font-size: 1.15rem;
+      font-weight: 700;
+      line-height: 1.45;
+      margin-bottom: 18px;
+      color: #FFFFFF;
+    }
+
+    .options-list {
+      display: flex;
+      flex-direction: column;
+      gap: 10px;
+    }
+
+    .option-btn {
+      display: flex;
+      align-items: flex-start;
+      gap: 12px;
+      width: 100%;
+      text-align: left;
+      background: var(--bg-card);
+      border: 1px solid var(--border-subtle);
+      color: var(--text-main);
+      padding: 14px 16px;
+      border-radius: 14px;
+      cursor: pointer;
+      transition: all 0.18s ease;
+    }
+
+    .option-btn:hover {
+      border-color: var(--toyota-red);
+      background: rgba(235, 10, 30, 0.08);
+      transform: translateX(3px);
+    }
+
+    .option-btn.selected {
+      border-color: var(--toyota-red);
+      background: rgba(235, 10, 30, 0.16);
+      box-shadow: 0 0 0 1px var(--toyota-red);
+    }
+
+    .opt-letter {
+      flex-shrink: 0;
+      width: 28px;
+      height: 28px;
+      border-radius: 8px;
+      background: rgba(255, 255, 255, 0.07);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-weight: 700;
+      font-size: 0.85rem;
+      color: #FFFFFF;
+    }
+
+    .option-btn.selected .opt-letter {
+      background: var(--toyota-red);
+    }
+
+    .opt-text {
+      font-size: 0.92rem;
+      line-height: 1.45;
+    }
+
+    .quiz-nav {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      margin-top: 20px;
+      gap: 12px;
+    }
+
+    .result-showcase {
+      background: radial-gradient(circle at 50% 30%, var(--glow-color, rgba(235, 10, 30, 0.28)), transparent 70%);
+      border: 1px solid var(--border-subtle);
+      border-radius: 18px;
+      padding: 20px 16px;
+      text-align: center;
+      margin-bottom: 18px;
+    }
+
+    .car-svg-box {
+      width: 100%;
+      max-width: 280px;
+      margin: 8px auto 12px;
+    }
+
+    .result-archetype {
+      font-size: 0.85rem;
+      font-weight: 600;
+      color: #FF5E6C;
+      letter-spacing: 0.04em;
+      margin-bottom: 4px;
+    }
+
+    .result-model {
+      font-size: 1.55rem;
+      font-weight: 800;
+      color: #FFFFFF;
+      margin-bottom: 6px;
+    }
+
+    .match-badge {
+      display: inline-block;
+      background: rgba(16, 185, 129, 0.16);
+      color: #34D399;
+      border: 1px solid rgba(16, 185, 129, 0.35);
+      font-size: 0.8rem;
+      font-weight: 600;
+      padding: 4px 12px;
+      border-radius: 999px;
+    }
+
+    .result-desc {
+      font-size: 0.92rem;
+      line-height: 1.65;
+      color: #E2E8F0;
+      margin-bottom: 18px;
+    }
+
+    .dna-bars {
+      background: var(--bg-card);
+      border-radius: 14px;
+      padding: 16px;
+      margin-bottom: 16px;
+    }
+
+    .dna-title {
+      font-size: 0.84rem;
+      font-weight: 700;
+      color: var(--text-muted);
+      margin-bottom: 12px;
+      text-transform: uppercase;
+      letter-spacing: 0.05em;
+    }
+
+    .bar-row {
+      margin-bottom: 10px;
+    }
+
+    .bar-row:last-child {
+      margin-bottom: 0;
+    }
+
+    .bar-label {
+      display: flex;
+      justify-content: space-between;
+      font-size: 0.8rem;
+      margin-bottom: 4px;
+      color: #CBD5E1;
+    }
+
+    .bar-bg {
+      height: 7px;
+      background: rgba(255, 255, 255, 0.08);
+      border-radius: 999px;
+      overflow: hidden;
+    }
+
+    .bar-val {
+      height: 100%;
+      background: var(--toyota-red);
+      border-radius: 999px;
+    }
+
+    .best-match-box {
+      background: rgba(255, 255, 255, 0.04);
+      border: 1px dashed rgba(255, 255, 255, 0.18);
+      border-radius: 12px;
+      padding: 12px 14px;
+      font-size: 0.85rem;
+      color: #CBD5E1;
+      margin-bottom: 18px;
+    }
+
+    .action-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 10px;
+    }
+
+    .sync-status {
+      margin-top: 14px;
+      text-align: center;
+      font-size: 0.76rem;
+      color: var(--text-muted);
+    }
+
+    .story-mode {
+      max-width: 390px !important;
+      aspect-ratio: 9 / 16;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+      border: 2px solid var(--toyota-red);
+    }
+
+    .admin-trigger {
+      position: fixed;
+      bottom: 16px;
+      right: 16px;
+      background: rgba(19, 24, 34, 0.9);
+      border: 1px solid var(--border-subtle);
+      color: var(--text-muted);
+      padding: 8px 14px;
+      border-radius: 999px;
+      font-size: 0.78rem;
+      cursor: pointer;
+      backdrop-filter: blur(8px);
+      z-index: 40;
+    }
+
+    .admin-trigger:hover {
+      color: #FFFFFF;
+      border-color: var(--toyota-red);
+    }
+
+    .modal-backdrop {
+      position: fixed;
+      inset: 0;
+      background: rgba(0, 0, 0, 0.8);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      padding: 16px;
+      z-index: 50;
+    }
+
+    .modal-box {
+      background: var(--bg-panel);
+      border: 1px solid var(--border-subtle);
+      border-radius: 20px;
+      width: 100%;
+      max-width: 680px;
+      max-height: 88vh;
+      overflow-y: auto;
+      padding: 24px;
+    }
+
+    .admin-stats-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(130px, 1fr));
+      gap: 10px;
+      margin: 16px 0;
+    }
+
+    .stat-card {
+      background: var(--bg-card);
+      padding: 12px;
+      border-radius: 12px;
+      border: 1px solid var(--border-subtle);
+    }
+
+    .stat-num {
+      font-size: 1.35rem;
+      font-weight: 800;
+      color: #FFFFFF;
+    }
+
+    .stat-name {
+      font-size: 0.75rem;
+      color: var(--text-muted);
+    }
+
+    table {
+      width: 100%;
+      border-collapse: collapse;
+      margin-top: 14px;
+      font-size: 0.8rem;
+    }
+
+    th, td {
+      padding: 8px 10px;
+      border-bottom: 1px solid var(--border-subtle);
+      text-align: left;
+    }
+
+    th {
+      color: var(--text-muted);
+      font-weight: 600;
+    }
+  </style>
+</head>
+<body>
+
+  <div class="container">
+    <div class="brand-header">
+      <div class="brand-badge">
+        <span class="brand-dot"></span>
+        <span>TOYOTA DRIVING DNA</span>
+      </div>
+      <div class="source-pill" id="sourceBadge">Source: Direct</div>
+    </div>
+
+    <!-- SCREEN 1: INTRO -->
+    <div class="card" id="introScreen">
+      <span class="hero-tag">PERSONALITY & LIFESTYLE QUIZ</span>
+      <h1>คุณเหมาะกับรถ Toyota รุ่นไหน และเป็นคนสไตล์ใด?</h1>
+      <p class="subtitle">
+        เจาะลึกตัวตนผ่านสถานการณ์จริง 10 ข้อ เพื่อค้นหารถคู่ใจที่สะท้อนจังหวะชีวิตและ DNA การขับเคลื่อนของคุณ
+      </p>
+
+      <div class="input-group">
+        <label for="playerName">ชื่อเล่นของคุณ (ไม่บังคับ)</label>
+        <input type="text" id="playerName" class="input-field" placeholder="เช่น นนท์, พลอย, Alex" />
+      </div>
+
+      <div class="input-group">
+        <label for="contactLead">เบอร์โทร หรือ LINE ID สำหรับรับสิทธิ์ทดลองขับ / ของที่ระลึก (ไม่บังคับ)</label>
+        <input type="text" id="contactLead" class="input-field" placeholder="เช่น 08X-XXX-XXXX หรือ @lineid" />
+      </div>
+
+      <label class="consent-row">
+        <input type="checkbox" id="pdpaConsent" checked />
+        <span>ยินยอมให้บันทึกผลแบบสอบถามและข้อมูลติดต่อเพื่อวิเคราะห์แคมเปญและติดต่อกลับกรณีรับสิทธิ์ทดลองขับ</span>
+      </label>
+
+      <button class="btn-primary" onclick="startQuiz()">สตาร์ทเครื่องยนต์ • เริ่มทำแบบสอบถาม</button>
+    </div>
+
+    <!-- SCREEN 2: QUIZ -->
+    <div class="card hidden" id="quizScreen">
+      <div class="telemetry-top">
+        <span class="q-counter" id="qCounter">ข้อที่ 1 / 10</span>
+        <span class="weight-badge" id="weightBadge">★ คำถามแก่นแท้ (x2 คะแนน)</span>
+      </div>
+      <div class="progress-track">
+        <div class="progress-fill" id="progressFill"></div>
+      </div>
+
+      <div class="question-text" id="questionText"></div>
+      <div class="options-list" id="optionsList"></div>
+
+      <div class="quiz-nav">
+        <button class="btn-secondary" id="prevBtn" onclick="prevQuestion()">← ย้อนกลับ</button>
+        <span style="font-size: 0.78rem; color: var(--text-muted);" id="navHint">เลือกคำตอบเพื่อไปต่อ</span>
+      </div>
+    </div>
+
+    <!-- SCREEN 3: RESULT -->
+    <div class="card hidden" id="resultScreen">
+      <div class="result-showcase" id="resultShowcase">
+        <div class="car-svg-box" id="carSvgBox"></div>
+        <div class="result-archetype" id="resultArchetype"></div>
+        <div class="result-model" id="resultModel"></div>
+        <div class="match-badge" id="matchPercent">ความเข้ากัน 92%</div>
+      </div>
+
+      <p class="result-desc" id="resultDesc"></p>
+
+      <div class="dna-bars" id="dnaSection">
+        <div class="dna-title">สัดส่วน DNA บุคลิกภาพของคุณ</div>
+        <div id="dnaBarsContainer"></div>
+      </div>
+
+      <div class="best-match-box" id="bestMatchBox"></div>
+
+      <div class="action-grid" id="resultActions">
+        <button class="btn-secondary" onclick="toggleStoryMode()" id="storyBtn">📱 โหมดการ์ด IG Story</button>
+        <button class="btn-primary" onclick="resetQuiz()">🔄 เล่นอีกครั้ง</button>
+      </div>
+
+      <div class="sync-status" id="syncStatus">กำลังบันทึกผลลัพธ์...</div>
+    </div>
+  </div>
+
+  <!-- ADMIN PORTAL BUTTON -->
+  <button class="admin-trigger" onclick="openAdminModal()">⚙️ Admin Portal</button>
+
+  <!-- ADMIN MODAL -->
+  <div class="modal-backdrop hidden" id="adminModal">
+    <div class="modal-box">
+      <div style="display:flex; justify-content:space-between; align-items:center; margin-bottom:14px;">
+        <h2 style="font-size:1.2rem;">📊 Admin Portal & ระบบหลังบ้าน</h2>
+        <button class="btn-secondary" style="padding:6px 12px;" onclick="closeAdminModal()">✕ ปิด</button>
+      </div>
+
+      <!-- PIN Lock View -->
+      <div id="adminLockView">
+        <p style="font-size:0.88rem; color:var(--text-muted); margin-bottom:12px;">
+          กรุณากรอกรหัสผ่าน Admin PIN เพื่อดูสถิติและจัดการข้อมูล
+        </p>
+        <div style="display:flex; gap:10px;">
+          <input type="password" id="pinInput" class="input-field" placeholder="กรอกรหัส PIN" maxlength="8" />
+          <button class="btn-primary" style="width:auto; white-space:nowrap;" onclick="verifyAdminPin()">เข้าสู่ระบบ</button>
+        </div>
+        <p id="pinError" style="color:#FF4D5E; font-size:0.8rem; margin-top:8px;" class="hidden">รหัส PIN ไม่ถูกต้อง</p>
+      </div>
+
+      <!-- Admin Dashboard View -->
+      <div id="adminDashboardView" class="hidden">
+        <div class="input-group">
+          <label>Google Apps Script Web App URL (/exec)</label>
+          <div style="display:flex; gap:8px;">
+            <input type="text" id="webhookInput" class="input-field" placeholder="https://script.google.com/macros/s/.../exec" />
+            <button class="btn-secondary" onclick="saveWebhookOverride()">บันทึก URL</button>
+          </div>
+        </div>
+
+        <div class="admin-stats-grid" id="adminStatsGrid"></div>
+
+        <div style="display:flex; gap:10px; flex-wrap:wrap; margin-bottom:14px;">
+          <button class="btn-primary" style="width:auto; padding:10px 16px; font-size:0.85rem;" onclick="exportCsv()">📥 Export CSV (Excel / Sheets)</button>
+          <button class="btn-secondary" style="padding:10px 16px; font-size:0.85rem; color:#FF5E6C;" onclick="clearLocalSubmissions()">🗑️ ล้างข้อมูลทดสอบในเครื่อง</button>
+        </div>
+
+        <div style="overflow-x:auto;">
+          <table>
+            <thead>
+              <tr>
+                <th>ID</th>
+                <th>เวลา</th>
+                <th>ชื่อผู้เล่น</th>
+                <th>รุ่นรถที่ได้</th>
+                <th>ช่องทาง</th>
+              </tr>
+            </thead>
+            <tbody id="adminTableBody"></tbody>
+          </table>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <script>
+    // =========================================================================
+    // [จุดตั้งค่าสำคัญสำหรับแอดมิน - แก้ไข 2 บรรทัดนี้ก่อนบันทึกไฟล์]
+    // =========================================================================
+    const DEFAULT_WEBHOOK_URL = "https://script.google.com/macros/s/AKfycbwpooTTYbzMJVJ2FBCcvT62hPtZGrQ6VdfyPlhd5cVLEpnbAT2iujFnx2NDaa2BO28O/exec"; // <-- วางลิงก์ Web App URL (/exec) จาก Google Apps Script ในเครื่องหมายคำพูดนี้
+    const ADMIN_PIN = "1010";       // <-- เปลี่ยนรหัสผ่านเข้าหน้า Admin Portal ที่นี่ (เช่น "8899")
+    // =========================================================================
+
+    const STORAGE_KEY_DATA = "toyota_dna_submissions_v1";
+    const STORAGE_KEY_URL = "toyota_dna_webhook_override";
+
+    const urlParams = new URLSearchParams(window.location.search);
+    const trafficSource = urlParams.get("source") || "Direct";
+    document.getElementById("sourceBadge").textContent = "Source: " + trafficSource;
+
+    const QUESTIONS = [
+      {
+        q: "1. เช้าวันหยุดยาวที่ไม่มีตารางงาน คุณอยากตื่นมาทำอะไรเป็นอย่างแรก?",
+        weighted: true,
+        options: {
+          A: "เปิดดูคาเฟ่เปิดใหม่หรืออีเวนต์น่าสนใจในเมือง แล้วแต่งตัวออกไปเดินเล่น",
+          B: "จัดบ้าน ชงกาแฟหอมๆ และวางแผนใช้เวลากับครอบครัวหรือคนรัก",
+          C: "เก็บกระเป๋าออกเดินทางไปแคมป์ปิ้ง เดินป่า หรือขับรถไปต่างจังหวัดแบบไม่ต้องวางแผนเยอะ",
+          D: "พักผ่อนอย่างสงบ อ่านหนังสือดีๆ หรือทบทวนเป้าหมายชีวิตในบรรยากาศส่วนตัว",
+          E: "ออกไปออกกำลังกาย เล่นกีฬาเอ็กซ์ตรีม หรือทำโปรเจกต์สนุกๆ ที่ค้างไว้"
+        }
+      },
+      {
+        q: "2. เมื่อต้องทำงานกลุ่มกับคนที่ไม่เคยร่วมงานกันมาก่อน คุณมักจะรับบทบาทไหน?",
+        weighted: false,
+        options: {
+          A: "ตัวประสานงาน คอยช่วยเติมเต็มส่วนที่ขาดและทำให้บรรยากาศการทำงานลื่นไหล",
+          B: "คนวางโครงสร้าง แบ่งหน้าที่ให้เหมาะสมกับความถนัดของแต่ละคน",
+          C: "คนลงมือทำหน้างาน ลุยแก้ปัญหาเฉพาะหน้าให้ทีมเดินต่อไปได้",
+          D: "คนตรวจสอบคุณภาพและภาพรวม เพื่อให้ผลงานออกมาสมบูรณ์แบบที่สุด",
+          E: "คนเสนอไอเดียแปลกใหม่ ที่ฉีกกรอบเดิมๆ ของกลุ่ม"
+        }
+      },
+      {
+        q: "3. หากได้รับเงินโบนัสก้อนพิเศษที่ไม่คาดคิด คุณจะจัดการกับเงินก้อนนี้อย่างไร?",
+        weighted: false,
+        options: {
+          A: "แบ่งส่วนหนึ่งซื้อของทันสมัยที่ช่วยอำนวยความสะดวกในชีวิต ที่เหลือเก็บออม",
+          B: "นำไปลงทุนระยะยาวหรือซื้อของที่คนในครอบครัวได้ใช้ประโยชน์ร่วมกัน",
+          C: "ใช้เป็นงบออกทริปผจญภัยครั้งใหญ่ หรือซื้ออุปกรณ์สำหรับงานอดิเรกสายลุย",
+          D: "นำไปต่อยอดการลงทุนที่มั่นคง หรือลงทุนพัฒนาความรู้และภาพลักษณ์ตัวเอง",
+          E: "ใช้สร้างประสบการณ์แปลกใหม่ที่ไม่เคยทำมาก่อน เช่น เรียนขับรถแข่งหรือเดินทางคนเดียว"
+        }
+      },
+      {
+        q: "4. เวลาเพื่อนสนิทโทรมาปรึกษาปัญหาชีวิต สไตล์การปลอบใจของคุณเป็นแบบไหน?",
+        weighted: false,
+        options: {
+          A: "รับฟังอย่างเข้าใจ ชวนไปหาของอร่อยกินเพื่อเปลี่ยนบรรยากาศให้สบายใจขึ้น",
+          B: "ปลอบโยนอย่างอบอุ่น และช่วยลำดับความคิดว่าควรจัดการเรื่องไหนก่อนหลัง",
+          C: "พูดให้กำลังใจแบบตรงไปตรงมา พร้อมเสนอตัวเข้าไปช่วยจัดการปัญหาด้วยกันทันที",
+          D: "วิเคราะห์สาเหตุของปัญหาอย่างใจเย็น และให้คำแนะนำที่มองเห็นทางออกระยะยาว",
+          E: "กระตุ้นให้เพื่อนมองมุมบวก พลิกวิกฤตให้เป็นโอกาสในการเริ่มต้นสิ่งใหม่"
+        }
+      },
+      {
+        q: "5. สิ่งใดที่คุณให้ความสำคัญมากที่สุดในการเลือก 'ของใช้คู่ใจ' สักชิ้น?",
+        weighted: true,
+        options: {
+          A: "ดีไซน์ทันสมัย ฟังก์ชันครบ และคุ้มค่ากับราคาที่จ่าย",
+          B: "ความปลอดภัย ใช้งานได้อเนกประสงค์ และตอบโจทย์ทุกคนในบ้าน",
+          C: "ความทนทาน สมบุกสมบัน ใช้ได้นานไม่พังง่ายในทุกสภาพแวดล้อม",
+          D: "ความประณีต ภาพลักษณ์ที่ดูดีมีระดับ และความน่าเชื่อถือของแบรนด์",
+          E: "สมรรถนะที่โดดเด่น เอกลักษณ์เฉพาะตัว และความรู้สึกตื่นเต้นทุกครั้งที่ได้ใช้"
+        }
+      },
+      {
+        q: "6. สถานการณ์ใดทำให้คุณรู้สึก 'หมดพลัง' ได้ง่ายที่สุด?",
+        weighted: false,
+        options: {
+          A: "การต้องทำอะไรซ้ำซากจำเจโดยไม่มีความแปลกใหม่เลย",
+          B: "ความวุ่นวายที่ขาดการวางแผน และบรรยากาศที่ตึงเครียดระหว่างผู้คน",
+          C: "การต้องนั่งอุดอู้อยู่กับที่นานๆ โดยไม่ได้ขยับตัวหรือลงมือทำจริง",
+          D: "การทำงานที่เร่งรีบจนขาดความรอบคอบและไม่ได้มาตรฐาน",
+          E: "การถูกตีกรอบด้วยกฎเกณฑ์ที่เข้มงวดจนไม่มีพื้นที่ให้แสดงตัวตน"
+        }
+      },
+      {
+        q: "7. ถ้าเปรียบชีวิตการทำงานของคุณเป็นแนวภาพยนตร์ จะตรงกับแนวไหนมากที่สุด?",
+        weighted: false,
+        options: {
+          A: "Comedy-Drama ที่เดินเรื่องกระชับ สนุก เข้าถึงง่าย และปรับตัวเข้ากับทุกสถานการณ์",
+          B: "Slice of Life / Family ที่อบอุ่น ค่อยๆ เติบโตอย่างมั่นคงและมีความหมาย",
+          C: "Action-Adventure ที่ต้องฝ่าฟันอุปสรรคหลากหลาย แต่จบลงด้วยชัยชนะของทีม",
+          D: "Thriller / Biopic ที่ต้องใช้ไหวพริบ การวางกลยุทธ์ และความสุขุมลุ่มลึก",
+          E: "Sci-Fi / Racing ที่เต็มไปด้วยความเร็ว พลังงาน และความท้าทายขีดจำกัด"
+        }
+      },
+      {
+        q: "8. เวลาไปเที่ยวต่างประเทศหรือต่างจังหวัด สไตล์การจัดทริปของคุณคือ?",
+        weighted: false,
+        options: {
+          A: "เน้นจุดเช็กอินยอดฮิต ร้านดังที่เดินทางสะดวก และคุมงบประมาณได้ดี",
+          B: "วางแผนตารางเวลาและที่พักอย่างรอบคอบ เพื่อให้ทุกคนในทริปสบายที่สุด",
+          C: "เน้นเส้นทางธรรมชาติ Unseen ขับรถสำรวจเส้นทางใหม่ๆ ที่คนไม่พลุกพล่าน",
+          D: "เน้นการพักผ่อนระดับพรีเมียม ชมศิลปะ วัฒนธรรม และรับประทานอาหารชั้นเลิศ",
+          E: "ซื้อตั๋วแล้วไปลุยหาประสบการณ์หน้างาน เน้นกิจกรรมที่ท้าทายอะดรีนาลีน"
+        }
+      },
+      {
+        q: "9. คำชมแบบไหนที่ทำให้คุณรู้สึกภูมิใจในตัวเองมากที่สุด?",
+        weighted: false,
+        options: {
+          A: "“อยู่กับคุณแล้วสบายใจ คุยง่าย และทันสมัยตลอดเวลา”",
+          B: "“คุณเป็นคนที่ดูแลคนอื่นเก่งและวางแผนทุกอย่างได้ลงตัวมาก”",
+          C: "“มีคุณอยู่ด้วยอุ่นใจที่สุด ไม่ว่าจะเจอปัญหาหนักแค่ไหนก็ผ่านไปได้”",
+          D: "“คุณเป็นคนที่มีวิสัยทัศน์ น่าเชื่อถือ และทำงานได้เนี้ยบมาก”",
+          E: "“คุณมีสไตล์เป็นของตัวเองและกล้าทำในสิ่งที่คนอื่นไม่กล้าทำ”"
+        }
+      },
+      {
+        q: "10. หากมองภาพตัวเองในอีก 5 ปีข้างหน้า คุณอยากให้ชีวิตเป็นแบบไหนมากที่สุด?",
+        weighted: true,
+        options: {
+          A: "มีไลฟ์สไตล์ที่คล่องตัว อิสระทางการเงิน และสนุกกับการใช้ชีวิตในเมืองอย่างมีคุณภาพ",
+          B: "มีความมั่นคงในหน้าที่การงานและครอบครัว ได้ดูแลคนที่รักอย่างเต็มที่",
+          C: "มีอิสรภาพในการเดินทาง ได้ออกไปค้นพบโลกกว้างและสร้างความสำเร็จด้วยลำแข้งตัวเอง",
+          D: "ก้าวขึ้นสู่ตำแหน่งผู้นำหรือผู้เชี่ยวชาญที่ได้รับการยอมรับในระดับสูง",
+          E: "ได้ทำตามความฝันที่หลงใหลอย่างสุดตัว และสร้างผลงานที่เป็นเอกลักษณ์ของตัวเอง"
+        }
+      }
+    ];
+
+    const PROFILES = {
+      A: {
+        model: "Toyota Yaris ATIV",
+        shortName: "Yaris ATIV",
+        archetype: "THE SMART URBANIST • นักปรับตัวสายสมาร์ท",
+        glow: "rgba(56, 189, 248, 0.3)",
+        accent: "#38BDF8",
+        desc: "คุณเป็นคนทันสมัย หัวไว และเข้ากับคนได้ทุกกลุ่ม ไม่ชอบเรื่องยุ่งยากซับซ้อน แต่รู้จักเลือกสิ่งที่ดีและคุ้มค่าที่สุดให้ตัวเองเสมอ ในกลุ่มเพื่อนคุณมักเป็นคนที่อัปเดตเทรนด์ใหม่ๆ และเป็นตัวเชื่อมบรรยากาศให้ทุกคนสนิทกันได้ง่าย",
+        bestMatch: "Toyota Corolla Cross (สาย B) — คู่หูที่ช่วยเติมเต็มการวางแผนระยะยาวให้กับความคล่องตัวของคุณ"
+      },
+      B: {
+        model: "Toyota Corolla Cross",
+        shortName: "Corolla Cross",
+        archetype: "THE WARM STRATEGIST • นักวางแผนผู้แสนอบอุ่น",
+        glow: "rgba(16, 185, 129, 0.3)",
+        accent: "#10B981",
+        desc: "คุณเป็นคนมองการณ์ไกล รักความสมดุล และให้ความสำคัญกับความรู้สึกของคนรอบข้างเสมอ ก่อนตัดสินใจเรื่องใหญ่คุณจะคิดเผื่อคนอื่นและมองถึงความมั่นคงในระยะยาว คุณจึงเป็น 'พื้นที่ปลอดภัย' ที่ใครๆ ก็อยากอยู่ใกล้",
+        bestMatch: "Toyota Yaris ATIV (สาย A) — เติมสีสันและความสนุกให้ทุกวันไม่จำเจ"
+      },
+      C: {
+        model: "Toyota Hilux Revo / Fortuner",
+        shortName: "Hilux Revo / Fortuner",
+        archetype: "THE FEARLESS PIONEER • ขาลุยหัวใจแกร่ง",
+        glow: "rgba(245, 158, 11, 0.3)",
+        accent: "#F59E0B",
+        desc: "คุณเป็นคนตรงไปตรงมา จริงใจ และพร้อมลุยทุกสถานการณ์ ยิ่งเจออุปสรรคคุณยิ่งมีพลังในการแก้ปัญหา คุณรักพวกพ้องและพร้อมปกป้องคนที่คุณแคร์เสมอ เป็นเสาหลักที่เพื่อนและครอบครัวพึ่งพาได้ในยามคับขัน",
+        bestMatch: "Toyota Camry (สาย D) — ผสมผสานพลังการลงมือทำกับกลยุทธ์ที่เฉียบคม"
+      },
+      D: {
+        model: "Toyota Camry",
+        shortName: "Camry",
+        archetype: "THE VISIONARY LEADER • ผู้นำสายสุขุมผู้มีวิสัยทัศน์",
+        glow: "rgba(168, 85, 247, 0.3)",
+        accent: "#A855F7",
+        desc: "คุณเป็นคนนิ่ง สง่างาม และใช้เหตุผลนำอารมณ์เสมอ คุณให้คุณค่ากับคุณภาพ ความประณีต และความน่าเชื่อถือ แม้จะพูดไม่เยอะ แต่ทุกครั้งที่คุณแสดงความคิดเห็น ทุกคนมักจะรับฟังเพราะผ่านการคิดวิเคราะห์มาอย่างรอบคอบแล้ว",
+        bestMatch: "Toyota GR86 / GR Sport (สาย E) — จุดประกายไอเดียใหม่ๆ นอกกรอบเดิม"
+      },
+      E: {
+        model: "Toyota GR86 / GR Sport",
+        shortName: "GR86 / GR Sport",
+        archetype: "THE PASSIONATE MAVERICK • นักล่าฝันผู้รักอิสระ",
+        glow: "rgba(235, 10, 30, 0.38)",
+        accent: "#EB0A1E",
+        desc: "คุณเกิดมาพร้อมพลังงานที่เหลือล้น มีความเป็นตัวของตัวเองสูง และไม่ชอบเดินตามกรอบเดิมๆ คุณขับเคลื่อนชีวิตด้วยความหลงใหล (Passion) กล้าเสี่ยงเมื่อเห็นโอกาส และมักสร้างแรงบันดาลใจให้คนรอบข้างกล้าออกจาก Comfort Zone",
+        bestMatch: "Toyota Hilux Revo / Fortuner (สาย C) — เพื่อนร่วมทางสายลุยที่พร้อมไปสุดทุกเป้าหมาย"
+      }
+    };
+
+    let currentStep = 0;
+    let userAnswers = new Array(10).fill(null);
+    let isStoryMode = false;
+
+    function getWebhookUrl() {
+      return localStorage.getItem(STORAGE_KEY_URL) || DEFAULT_WEBHOOK_URL;
+    }
+
+    function startQuiz() {
+      currentStep = 0;
+      userAnswers = new Array(10).fill(null);
+      document.getElementById("introScreen").classList.add("hidden");
+      document.getElementById("resultScreen").classList.add("hidden");
+      document.getElementById("quizScreen").classList.remove("hidden");
+      renderQuestion();
+    }
+
+    function renderQuestion() {
+      const qObj = QUESTIONS[currentStep];
+      document.getElementById("qCounter").textContent = `ข้อที่ ${currentStep + 1} / ${QUESTIONS.length}`;
+      document.getElementById("progressFill").style.width = `${((currentStep + 1) / QUESTIONS.length) * 100}%`;
+
+      const weightBadge = document.getElementById("weightBadge");
+      if (qObj.weighted) {
+        weightBadge.classList.remove("hidden");
+      } else {
+        weightBadge.classList.add("hidden");
+      }
+
+      document.getElementById("questionText").textContent = qObj.q;
+
+      const optionsList = document.getElementById("optionsList");
+      optionsList.innerHTML = "";
+
+      Object.entries(qObj.options).forEach(([letter, text]) => {
+        const btn = document.createElement("button");
+        btn.className = "option-btn" + (userAnswers[currentStep] === letter ? " selected" : "");
+        btn.innerHTML = `
+          <span class="opt-letter">${letter}</span>
+          <span class="opt-text">${text}</span>
+        `;
+        btn.onclick = () => selectOption(letter);
+        optionsList.appendChild(btn);
+      });
+
+      document.getElementById("prevBtn").style.visibility = currentStep === 0 ? "hidden" : "visible";
+    }
+
+    function selectOption(letter) {
+      userAnswers[currentStep] = letter;
+      renderQuestion();
+
+      setTimeout(() => {
+        if (currentStep < QUESTIONS.length - 1) {
+          currentStep++;
+          renderQuestion();
+        } else {
+          finishQuiz();
+        }
+      }, 220);
+    }
+
+    function prevQuestion() {
+      if (currentStep > 0) {
+        currentStep--;
+        renderQuestion();
+      }
+    }
+
+    function calculateScores(answers) {
+      const scores = { A: 0, B: 0, C: 0, D: 0, E: 0 };
+      answers.forEach((ans, idx) => {
+        const weight = QUESTIONS[idx].weighted ? 2 : 1;
+        if (scores.hasOwnProperty(ans)) {
+          scores[ans] += weight;
+        }
+      });
+
+      const maxScore = Math.max(...Object.values(scores));
+      const topKeys = Object.keys(scores).filter(k => scores[k] === maxScore);
+      const finalCode = topKeys.length > 1 ? answers[9] : topKeys[0];
+      return { scores, finalCode, maxScore };
+    }
+
+    function getCarSvg(accentColor, code) {
+      const isSuvOrTruck = (code === "B" || code === "C");
+      const roofPath = isSuvOrTruck
+        ? "M75,62 L115,34 L205,34 L245,58 L272,64 L272,82 L42,82 L48,66 Z"
+        : "M72,64 L118,38 L195,38 L242,60 L272,66 L272,82 L42,82 L48,68 Z";
+
+      return `
+        <svg viewBox="0 0 320 110" width="100%" height="auto">
+          <defs>
+            <linearGradient id="carGrad" x1="0" y1="0" x2="1" y2="1">
+              <stop offset="0%" stop-color="#FFFFFF" stop-opacity="0.95"/>
+              <stop offset="100%" stop-color="#94A3B8" stop-opacity="0.75"/>
+            </linearGradient>
+          </defs>
+          <ellipse cx="160" cy="92" rx="135" ry="8" fill="${accentColor}" opacity="0.28"/>
+          <path d="${roofPath}" fill="url(#carGrad)" stroke="${accentColor}" stroke-width="2"/>
+          <path d="M122,42 L192,42 L222,58 L95,58 Z" fill="#0F172A" opacity="0.85"/>
+          <circle cx="92" cy="82" r="18" fill="#0A0D12" stroke="${accentColor}" stroke-width="3"/>
+          <circle cx="92" cy="82" r="8" fill="#CBD5E1"/>
+          <circle cx="230" cy="82" r="18" fill="#0A0D12" stroke="${accentColor}" stroke-width="3"/>
+          <circle cx="230" cy="82" r="8" fill="#CBD5E1"/>
+          <rect x="255" y="66" width="14" height="5" rx="2" fill="${accentColor}"/>
+        </svg>
+      `;
+    }
+
+    async function finishQuiz() {
+      document.getElementById("quizScreen").classList.add("hidden");
+      document.getElementById("resultScreen").classList.remove("hidden");
+
+      const { scores, finalCode, maxScore } = calculateScores(userAnswers);
+      const profile = PROFILES[finalCode];
+      const totalPossible = 13;
+      const matchPct = Math.min(99, Math.max(78, Math.round((maxScore / totalPossible) * 100) + 18));
+
+      const showcase = document.getElementById("resultShowcase");
+      showcase.style.setProperty("--glow-color", profile.glow);
+      document.getElementById("carSvgBox").innerHTML = getCarSvg(profile.accent, finalCode);
+      document.getElementById("resultArchetype").textContent = profile.archetype;
+      document.getElementById("resultModel").textContent = profile.model;
+      document.getElementById("matchPercent").textContent = `ความเข้ากัน ${matchPct}%`;
+      document.getElementById("resultDesc").textContent = profile.desc;
+      document.getElementById("bestMatchBox").innerHTML = `<strong>🤝 รุ่นรถคู่หูที่เข้ากันได้ดี:</strong> ${profile.bestMatch}`;
+
+      const barsContainer = document.getElementById("dnaBarsContainer");
+      barsContainer.innerHTML = "";
+      Object.entries(PROFILES).forEach(([code, info]) => {
+        const pct = Math.round((scores[code] / totalPossible) * 100);
+        barsContainer.innerHTML += `
+          <div class="bar-row">
+            <div class="bar-label">
+              <span>${info.shortName}</span>
+              <span>${scores[code]} คะแนน (${pct}%)</span>
+            </div>
+            <div class="bar-bg">
+              <div class="bar-val" style="width:${pct}%; background:${code === finalCode ? info.accent : '#475569'};"></div>
+            </div>
+          </div>
+        `;
+      });
+
+      const hasConsent = document.getElementById("pdpaConsent").checked;
+      const playerName = hasConsent ? (document.getElementById("playerName").value.trim() || "Guest") : "Anonymous";
+      const contactLead = hasConsent ? (document.getElementById("contactLead").value.trim() || "-") : "-";
+
+      const payload = {
+        answers: userAnswers,
+        playerName: playerName,
+        contactLead: contactLead,
+        source: trafficSource
+      };
+
+      saveLocalSubmission(payload, finalCode, profile.model, scores);
+      await sendToGoogleSheets(payload);
+    }
+
+    function saveLocalSubmission(payload, finalCode, matchedModel, scores) {
+      const existing = JSON.parse(localStorage.getItem(STORAGE_KEY_DATA) || "[]");
+      const id = "TYT-" + String(existing.length + 1).padStart(4, "0");
+      existing.push({
+        submissionId: id,
+        timestamp: new Date().toLocaleString("th-TH"),
+        playerName: payload.playerName,
+        contactLead: payload.contactLead,
+        answers: payload.answers,
+        scores: scores,
+        finalCode: finalCode,
+        matchedModel: matchedModel,
+        source: payload.source
+      });
+      localStorage.setItem(STORAGE_KEY_DATA, JSON.stringify(existing));
+    }
+
+    async function sendToGoogleSheets(payload) {
+      const syncEl = document.getElementById("syncStatus");
+      const webhookUrl = getWebhookUrl();
+
+      if (!webhookUrl) {
+        syncEl.textContent = "บันทึกผลในเครื่องเรียบร้อย (ยังไม่ได้เชื่อมต่อ Google Sheets URL)";
+        return;
+      }
+
+      syncEl.textContent = "กำลังซิงก์ข้อมูลไปยังระบบหลังบ้าน...";
+      try {
+        const res = await fetch(webhookUrl, {
+          method: "POST",
+          headers: { "Content-Type": "text/plain;charset=utf-8" },
+          body: JSON.stringify(payload)
+        });
+        const data = await res.json();
+        if (data.status === "success") {
+          syncEl.textContent = `✓ บันทึกข้อมูลสำเร็จ (รหัสอ้างอิง: ${data.submissionId})`;
+          syncEl.style.color = "#34D399";
+        } else {
+          syncEl.textContent = "⚠ บันทึกในเครื่องแล้ว แต่หลังบ้านแจ้งเตือน: " + (data.message || "Error");
+        }
+      } catch (err) {
+        syncEl.textContent = "✓ บันทึกผลลัพธ์เรียบร้อย (Offline / Local Mode)";
+      }
+    }
+
+    function toggleStoryMode() {
+      isStoryMode = !isStoryMode;
+      const card = document.getElementById("resultScreen");
+      const dna = document.getElementById("dnaSection");
+      const btn = document.getElementById("storyBtn");
+
+      if (isStoryMode) {
+        card.classList.add("story-mode");
+        dna.classList.add("hidden");
+        btn.textContent = "↩ กลับมุมมองปกติ";
+        alert("เข้าสู่โหมดการ์ด 9:16 แล้ว! สามารถแคปหน้าจอ (Screenshot) เพื่อแชร์ลง IG Story ได้ทันที");
+      } else {
+        card.classList.remove("story-mode");
+        dna.classList.remove("hidden");
+        btn.textContent = "📱 โหมดการ์ด IG Story";
+      }
+    }
+
+    function resetQuiz() {
+      isStoryMode = false;
+      document.getElementById("resultScreen").classList.remove("story-mode");
+      document.getElementById("dnaSection").classList.remove("hidden");
+      document.getElementById("resultScreen").classList.add("hidden");
+      document.getElementById("introScreen").classList.remove("hidden");
+    }
+
+    function openAdminModal() {
+      document.getElementById("adminModal").classList.remove("hidden");
+      document.getElementById("pinInput").value = "";
+      document.getElementById("pinError").classList.add("hidden");
+    }
+
+    function closeAdminModal() {
+      document.getElementById("adminModal").classList.add("hidden");
+    }
+
+    function verifyAdminPin() {
+      const entered = document.getElementById("pinInput").value.trim();
+      if (entered === ADMIN_PIN) {
+        document.getElementById("adminLockView").classList.add("hidden");
+        document.getElementById("adminDashboardView").classList.remove("hidden");
+        renderAdminDashboard();
+      } else {
+        document.getElementById("pinError").classList.remove("hidden");
+      }
+    }
+
+    function saveWebhookOverride() {
+      const val = document.getElementById("webhookInput").value.trim();
+      localStorage.setItem(STORAGE_KEY_URL, val);
+      alert("บันทึก Web App URL สำหรับเครื่องนี้เรียบร้อยแล้ว");
+    }
+
+    function renderAdminDashboard() {
+      document.getElementById("webhookInput").value = getWebhookUrl();
+      const list = JSON.parse(localStorage.getItem(STORAGE_KEY_DATA) || "[]");
+
+      const counts = { A: 0, B: 0, C: 0, D: 0, E: 0 };
+      list.forEach(item => {
+        if (counts.hasOwnProperty(item.finalCode)) counts[item.finalCode]++;
+      });
+
+      const statsGrid = document.getElementById("adminStatsGrid");
+      statsGrid.innerHTML = `
+        <div class="stat-card">
+          <div class="stat-num">${list.length}</div>
+          <div class="stat-name">ผู้เล่นทั้งหมด (เครื่องนี้)</div>
+        </div>
+        ${Object.entries(PROFILES).map(([code, info]) => `
+          <div class="stat-card">
+            <div class="stat-num">${counts[code]}</div>
+            <div class="stat-name">${info.shortName}</div>
+          </div>
+        `).join("")}
+      `;
+
+      const tbody = document.getElementById("adminTableBody");
+      tbody.innerHTML = list.slice().reverse().map(row => `
+        <tr>
+          <td>${row.submissionId}</td>
+          <td>${row.timestamp}</td>
+          <td>${row.playerName} (${row.contactLead})</td>
+          <td>${row.matchedModel}</td>
+          <td>${row.source}</td>
+        </tr>
+      `).join("") || `<tr><td colspan="5" style="text-align:center; color:var(--text-muted);">ยังไม่มีข้อมูลการเล่นในเครื่องนี้</td></tr>`;
+    }
+
+    function exportCsv() {
+      const list = JSON.parse(localStorage.getItem(STORAGE_KEY_DATA) || "[]");
+      if (!list.length) {
+        alert("ยังไม่มีข้อมูลสำหรับ Export");
+        return;
+      }
+
+      const headers = [
+        "Submission_ID", "Timestamp", "Player_Name", "Contact_Lead",
+        "Q1", "Q2", "Q3", "Q4", "Q5", "Q6", "Q7", "Q8", "Q9", "Q10",
+        "Score_A", "Score_B", "Score_C", "Score_D", "Score_E",
+        "Final_Code", "Toyota_Model", "Traffic_Source"
+      ];
+
+      const rows = list.map(r => [
+        r.submissionId,
+        `"${r.timestamp}"`,
+        `"${r.playerName}"`,
+        `"${r.contactLead}"`,
+        ...r.answers,
+        r.scores.A, r.scores.B, r.scores.C, r.scores.D, r.scores.E,
+        r.finalCode,
+        `"${r.matchedModel}"`,
+        `"${r.source}"`
+      ]);
+
+      const csvContent = "\uFEFF" + [headers.join(","), ...rows.map(e => e.join(","))].join("\n");
+      const blob = new Blob([csvContent], { type: "text/csv;charset=utf-8;" });
+      const link = document.createElement("a");
+      link.href = URL.createObjectURL(blob);
+      link.download = `Toyota_Driving_DNA_${new Date().toISOString().slice(0, 10)}.csv`;
+      link.click();
+    }
+
+    function clearLocalSubmissions() {
+      if (confirm("ต้องการล้างข้อมูลทดสอบทั้งหมดในเบราว์เซอร์เครื่องนี้ใช่หรือไม่?")) {
+        localStorage.removeItem(STORAGE_KEY_DATA);
+        renderAdminDashboard();
+      }
+    }
+  </script>
+</body>
+</html>
